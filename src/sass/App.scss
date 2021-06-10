@@ -1,0 +1,103 @@
+@import "config";
+$Dark-Blue-Dark-Mode-Elements: #2b3945;
+$Very-Dark-Blue-Dark-Mode-Background: #202c37;
+$Very-Dark-Blue-Light-Mode-Text: #111517;
+$Dark-Gray-Light-Mode-Input: #858585;
+$Very-Light-Gray-Light-Mode-Background: #fafafa;
+$White-Dark-Mode-Text-Light-Mode-Elements: #ffffff;
+
+.App {
+    width: 100%;
+    min-height: 100vh;
+    background: #fafafa;
+    color: $Very-Dark-Blue-Light-Mode-Text;
+    transition: all .4s ease-in-out;
+    
+    @import "header";
+    @import "search-section";
+    @import "search-results";
+    @import "detail";
+}
+
+.DarkMode {
+    background: $Very-Dark-Blue-Dark-Mode-Background;
+    color: $White-Dark-Mode-Text-Light-Mode-Elements;
+    .Header {
+        background: $Dark-Blue-Dark-Mode-Elements;
+        box-shadow: 1px 2px 3px #202c37;
+    }
+    .SearchSection {
+        .SearchBar {
+            background: $Dark-Blue-Dark-Mode-Elements;
+            color: $White-Dark-Mode-Text-Light-Mode-Elements;
+            box-shadow: 1px 2px 3px #202c37;
+            svg {
+                path {
+                    stroke: #ffffff;
+                }    
+            }
+            input {
+                &::placeholder {
+                    color: $White-Dark-Mode-Text-Light-Mode-Elements;
+                }    
+                background: $Dark-Blue-Dark-Mode-Elements;
+            }
+        }
+        .Filter {
+            .Select {
+                .Head {
+                    background: $Dark-Blue-Dark-Mode-Elements;
+                    .Icon {
+                        svg {
+                            path {
+                                fill: #fff;
+                            }
+                        }
+                    }
+                }
+                .List {
+                    background: $Dark-Blue-Dark-Mode-Elements;
+                    p {
+                        &:hover {
+                            background: #141b20;
+                            color: #ffffff;
+                        }    
+                    }
+                }
+            }
+        }  
+    }
+
+    .SearchResults {
+        .ResultsGrid {
+            a {
+                color: $White-Dark-Mode-Text-Light-Mode-Elements;
+                .GridItem {
+                    background: $Dark-Blue-Dark-Mode-Elements;
+                    box-shadow: 1px 2px 3px #202c37;
+                }
+            }    
+        }
+        .LoadMore {
+            background: $Dark-Blue-Dark-Mode-Elements;
+            box-shadow: 2px 3px 3px #202c37;
+            color: $White-Dark-Mode-Text-Light-Mode-Elements;
+            &:active {
+                box-shadow: 2px 3px 3px #171f27;    
+            }    
+
+        }
+        .Scroll {
+            background: $Dark-Blue-Dark-Mode-Elements;
+            box-shadow: 2px 3px 3px #202c37;
+            &:active {
+                box-shadow: 2px 3px 3px #171f27;    
+            }
+            svg {
+                path {
+                    fill: #ffffff;
+                }
+            }
+        }
+    }
+}
