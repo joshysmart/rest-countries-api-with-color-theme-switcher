@@ -54,16 +54,16 @@ class Detail extends Component {
                                 <h2>{name}</h2>
                             </div>
                             <div className="">
-                                <p>{nativeName}</p>
-                                <p>{population}</p>
-                                <p>{region}</p>
-                                <p>{subregion}</p>
-                                <p>{capital}</p>
+                                <p><b>Native Name:</b> {nativeName}</p>
+                                <p><b>Population: </b> {`${population}`.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")}</p>
+                                <p><b>Region: </b>{region}</p>
+                                <p><b>Sub Region: </b>{subregion}</p>
+                                <p><b>Capital: </b>{capital}</p>
                             </div>
                             <div className="">
-                                <p>{topLevelDomain}</p>
-                                <p>{countryLanguages}</p>
-                                <p>{countryCurrencies}</p>
+                                <p><b>Top Level Domain: </b>{topLevelDomain}</p>
+                                <p><b>Currencies: </b>{countryCurrencies}</p>
+                                <p><b>Languages: </b>{countryLanguages}</p>
                             </div>
                             <div>
                                 <h3>Border Countries:</h3>
