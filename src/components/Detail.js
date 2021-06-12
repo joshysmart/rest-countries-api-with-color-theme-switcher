@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Link, Route, Switch } from 'react-router-dom';
 import Header from './home-component/Header';
 import CountriesAlpha3Code from "./countries_two.json";
 
@@ -43,7 +43,13 @@ class Detail extends Component {
 
                 <div className="Detail">
                     <div>
-                        <button className="BackBtn">Back</button>
+                        <Link 
+                            to={{
+                                pathname: "/",
+                            }}
+                            >
+                            <button className="BackBtn">Back</button>
+                        </Link>
                     </div>
                     <div>
                         <div className="Flag">
