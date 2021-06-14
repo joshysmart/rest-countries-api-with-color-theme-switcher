@@ -1,11 +1,7 @@
 import { Component } from 'react';
 import { RiMoonLine } from 'react-icons/ri';
-import { RiMoonFill } from 'react-icons/ri';
 
 class Header extends Component {
-  constructor() {
-    super();
-  }
   render() {
     return (
       <header className="Header">
