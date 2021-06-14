@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Link, Route, Switch } from 'react-router-dom';
+import {  Link, } from 'react-router-dom';
 import Header from './home-component/Header';
 import CountriesAlpha3Code from "./countries_two";
 import { BsArrowLeft } from 'react-icons/bs';
