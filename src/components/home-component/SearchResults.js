@@ -22,14 +22,11 @@ class SearchResults extends Component {
                 this.scrollbutton.current.classList.remove("displayScroll");
             }
         }
-        // console.log("Sxrolling");
-        // console.log(this.scrollbutton.current)
     }
 
     handleScrollClick() {
         document.body.scrollTop = 0;
         document.documentElement.scrollTop = 0;
-        console.log("this")
     }
 
 
@@ -38,20 +35,20 @@ class SearchResults extends Component {
         const GridItem = countries.slice(from, to).map((country, i) =>
             <Link
                 to={{
-                    pathname: "/detail",
-                    state: { 
-                        name: country.name,
-                        flag: country.flag,
-                        nativeName: country.nativeName,
-                        population: country.population,
-                        region: country.region,
-                        subregion: country.subregion,
-                        capital: country.capital,
-                        topLevelDomain: country.topLevelDomain,
-                        currencies: country.currencies,
-                        languages: country.languages,
-                        borders: country.borders
+                    pathname: `/detail/${country.alpha3Code}`,
+                    state: {
+                        name: "jay"
                     }
+                    //     nativeName: country.nativeName,
+                    //     population: country.population,
+                    //     region: country.region,
+                    //     subregion: country.subregion,
+                    //     capital: country.capital,
+                    //     topLevelDomain: country.topLevelDomain,
+                    //     currencies: country.currencies,
+                    //     languages: country.languages,
+                    //     borders: country.borders,
+                    // }
                 }}
                 key={i}
             >

@@ -6,14 +6,123 @@ import Error from './components/Error';
 import './css/App.css';
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      "api": "https://restcountries.eu/rest/v2/all",
+      "loading": false,
+      "countries": [],
+      "country": {},
+      "from": 0,
+      "to": 16,
+      "text": "Filter by Region",
+      "countryName": "Nigeria",
+      "error": false,
+      "DarkMode": false
+    }
+    this.handleClick = this.handleClick.bind(this);
+    this.handleSelect = this.handleSelect.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    // this.handleDetailClick = this.handleDetailClick.bind(this);
+    this.toggleMode = this.toggleMode.bind(this);
+  }
+
+  getData(endpoint) {
+    this.setState({ loading: true })
+    fetch(endpoint)
+    .then(blob => blob.json())
+    .then(data => {
+      // console.log(data)
+      if (data.status === 404) {
+        this.setState({ "error": true })
+      } else {
+        this.setState(prev => {
+          return {
+            ...prev,
+            "countries": data,
+            // 'country': data,
+            "loading": false
+          }
+        });
+      }
+    });
+  }
+
+  componentDidMount() {
+    this.getData(this.state.api);
+  }
+
+  handleClick() {
+    this.setState(prev => {
+      return {
+        ...prev,
+        "from": prev.from,
+        "to": prev.to + 12
+      }
+    })
+  }
+
+  handleChange(e) {
+    console.log("changing")
+    this.setState({
+      "countryName": e.target.value,
+      "error": false
+    });
+  }
+
+
+  handleSubmit(e) {
+    e.preventDefault();
+    const url = `https://restcountries.eu/rest/v2/name/${this.state.countryName}`;
+    this.getData(url);
+  }
+
+  handleSelect(e) {
+    const text = e.target.textContent;
+    const url = `https://restcountries.eu/rest/v2/region/${text}`
+    this.setState({
+      "text": text
+    })
+    this.getData(url)
+  }
+
+  toggleMode() {
+    this.setState(prev => {
+      return {
+        "DarkMode": !prev.DarkMode
+      }
+    })
+  }
+
+  // handleDetailClick(url) {
+  //   this.getData(url);
+
+  //   console.log("Handling de÷tail")
+  // }
 
 
   render() {
     return (
       <>
         <Switch>
-          <Route path='/' component={Home} exact />
-          <Route path='/detail' component={Detail} />
+          <Route path='/' render={() => <Home 
+            state={this.state}
+            toggleMode={this.toggleMode}
+            handleChange={this.handleChange}
+            handleSubmit={this.handleSubmit}
+            handleSelect={this.handleSelect}
+            handleClick={this.handleClick}
+          />}  exact />
+          <Route path='/detail/:alpha3Code' 
+            render={(props) => <Detail 
+            {...props}
+            state={this.state}
+            toggleMode={this.toggleMode}
+            exact
+            // handleDetailClick={this.handleDetailClick}
+            // country={this.props.match.params.country}
+          />} />
           <Route component={Error} />
         </Switch>
       </>

@@ -112,10 +112,12 @@ $White-Dark-Mode-Text-Light-Mode-Elements: #ffffff;
         .Details {
             .BorderCountries {
                 .Borders {
-                    button {
-                        background: $Dark-Blue-Dark-Mode-Elements;
-                        box-shadow: 1px 1px 4px 1px #202c37;
-                        color: #fff;
+                    a {
+                        button {
+                            background: $Dark-Blue-Dark-Mode-Elements;
+                            box-shadow: 1px 1px 4px 1px #202c37;
+                            color: #fff;
+                        }
                     }
                 }
             }
