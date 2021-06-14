@@ -4,3 +4,9 @@ $Very-Dark-Blue-Light-Mode-Text: #111517;
 $Dark-Gray-Light-Mode-Input: #858585;
 $Very-Light-Gray-Light-Mode-Background: #fafafa;
 $White-Dark-Mode-Text-Light-Mode-Elements: #ffffff;
+
+@mixin media-xl {
+    @media only screen and (min-width:1280px) {
+        @content;
+    }
+}

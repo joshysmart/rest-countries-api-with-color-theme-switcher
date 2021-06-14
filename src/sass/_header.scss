@@ -1,9 +1,3 @@
-$Dark-Blue-Dark-Mode-Elements: #2b3945;
-$Very-Dark-Blue-Dark-Mode-Background: #202c37;
-$Very-Dark-Blue-ight-Mode-Text: #111517;
-$Dark-Gray-Light-Mode-Input: #858585;
-$Very-Light-Gray-Light-Mode-Background: #fafafa;
-$White-Dark-Mode-Text-Light-Mode-Elements: #ffffff;
 
 .Header {
     width: 100%;
@@ -15,12 +9,23 @@ $White-Dark-Mode-Text-Light-Mode-Elements: #ffffff;
     box-shadow: 1px 2px 3px #e9e9e9;
     transition: all .4s ease-in-out;
 
+    @include media-xl {
+        padding: 1.5rem 5rem;
+    }
+
     .Logo {
         display: block;
         font-weight: 600;
+        @include media-xl {
+            font-size: 1.5rem;
+            font-weight: 800;
+        }    
     }
     .Mode {
         display: block;
         cursor: pointer;
+        @include media-xl {
+            font-weight: 800;
+        }    
     }
 }

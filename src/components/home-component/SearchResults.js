@@ -10,16 +10,17 @@ class SearchResults extends Component {
     }
 
     componentDidMount() {
-        if(this.scrollbutton.current) {
-            window.onscroll = () => this.handleScroll();
-        }
+        window.onscroll = () => this.handleScroll();
     }
 
     handleScroll() {
-        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-            this.scrollbutton.current.classList.add("displayScroll");
-        } else {
-            this.scrollbutton.current.classList.remove("displayScroll");
+        if(this.scrollbutton.current) {
+
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                this.scrollbutton.current.classList.add("displayScroll");
+            } else {
+                this.scrollbutton.current.classList.remove("displayScroll");
+            }
         }
         // console.log("Sxrolling");
         // console.log(this.scrollbutton.current)

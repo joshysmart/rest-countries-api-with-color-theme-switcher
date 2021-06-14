@@ -13,7 +13,7 @@ class Home extends Component {
             "loading": false,
             "countries": [],
             "from": 0,
-            "to": 10,
+            "to": 16,
             "text": "Filter by Region",
             "country": "Nigeria",
             "error": false,
@@ -54,7 +54,7 @@ class Home extends Component {
             return {
                 ...prev,
                 "from": prev.from,
-                "to": prev.to + 10
+                "to": prev.to + 12
             }
         })
     }

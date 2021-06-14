@@ -49,7 +49,7 @@ class Detail extends Component {
                             <button className="Btn"><BsArrowLeft /> Back</button>
                         </Link>
                     </div>
-                    <div>
+                    <div className="FlexItem">
                         <div className="Flag">
                             <img src={flag} alt="" />
                         </div>
@@ -57,17 +57,19 @@ class Detail extends Component {
                             <div className="CountryName">
                                 <h2>{name}</h2>
                             </div>
-                            <div className="NativeDetails">
-                                <p><b>Native Name:</b> {nativeName}</p>
-                                <p><b>Population: </b> {`${population}`.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")}</p>
-                                <p><b>Region: </b>{region}</p>
-                                <p><b>Sub Region: </b>{subregion}</p>
-                                <p><b>Capital: </b>{capital}</p>
-                            </div>
-                            <div className="EconomicDetails">
-                                <p><b>Top Level Domain: </b>{topLevelDomain}</p>
-                                <p><b>Currencies: </b>{countryCurrencies}</p>
-                                <p><b>Languages: </b>{countryLanguages}</p>
+                            <div className="FlexItem"> 
+                                <div className="NativeDetails">
+                                    <p><b>Native Name:</b> {nativeName}</p>
+                                    <p><b>Population: </b> {`${population}`.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")}</p>
+                                    <p><b>Region: </b>{region}</p>
+                                    <p><b>Sub Region: </b>{subregion}</p>
+                                    <p><b>Capital: </b>{capital}</p>
+                                </div>
+                                <div className="EconomicDetails">
+                                    <p><b>Top Level Domain: </b>{topLevelDomain}</p>
+                                    <p><b>Currencies: </b>{countryCurrencies}</p>
+                                    <p><b>Languages: </b>{countryLanguages}</p>
+                                </div>
                             </div>
                             <div className="BorderCountries"> 
                                 <h3>Border Countries:</h3>

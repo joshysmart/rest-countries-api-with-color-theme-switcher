@@ -1,7 +1,14 @@
 .Detail{
     padding: 2.6rem 1.6rem 2rem 1.6rem;
 
+    @include media-xl {
+        padding: 1.5rem 5rem;
+    }
     .BackBtn {
+        @include media-xl {
+            padding: 3rem 0 1rem 0;
+        }
+
         a {
             text-decoration: none;
         }
@@ -22,65 +29,100 @@
             svg {
                 margin: 0 10px 0 0;
             }
+            @include media-xl {
+                padding: .5rem 2rem;
+            }
         }
     }
 
-    .Flag {
-        width: 100%;
-        // height: 340px;    
-        padding: 4rem 0 3rem 0;  
-        
-        img {
+    .FlexItem {
+        padding: 4rem 0 3rem 0; 
+        @include media-xl {
+            display: flex;
+            justify-content: space-between;
+        }
+        .Flag {
             width: 100%;
-            // height: 100%;
-        }
-    }
-    .Details {
-        font-size: .9rem;
-        b {
-            font-weight: 600;
-        }
-        .CountryName {
-            h2 {
-                margin: 0;
-            }
-        }
-        .NativeDetails {
-            margin: 2rem 0;
-            p {
-                margin: .5rem 0;
-            }
-        }
-        .EconomicDetails {
-            margin: 3rem 0;
-            p {
-                margin: .5rem 0;
-            }
-        }
-        .BorderCountries {
-
-            .Borders {
+            // height: 340px;    
+            @include media-xl {
+                // padding: 0;
+            } 
+            
+            img {
                 width: 100%;
-                display: grid;
-                grid-template-columns: repeat(3, 1fr );
-                grid-template-rows: repeat(2, 1fr);
-                grid-gap: .5rem;
-                
-                button {
-                    padding: .5rem;
-                    outline: 0;
-                    background: #fff;
-                    border: 0;
-                    box-shadow: 1px 1px 4px 1px #cccaca;
-                    font-weight: 300;
-                    transition: all .4s ease-in-out;   
-                    font-size: .8rem;                 
-                }
-
+                // height: 100%;
             }
-            // width: 100%;
-            // display: grid;
-            // grid-template-columns: repeat (auto auto);
+            @include media-xl {
+                width: 45%;
+            }
         }
-    }
+        .Details {
+            font-size: .9rem;
+            @include media-xl {
+                width: 45%;
+            }
+
+            .FlexItem {
+                padding: 0;
+                @include media-xl {
+                    display: flex;
+                    justify-content: space-between;
+                }
+                b {
+                    font-weight: 600;
+                }
+                .NativeDetails {
+                    .CountryName {
+                        h2 {
+                            margin: 0;
+                        }
+                    }
+                    margin: 2rem 0;
+                    p {
+                        margin: .5rem 0;
+                    }
+                    @include media-xl {
+                        margin: 0;
+                    }
+                }
+                .EconomicDetails {
+                    margin: 3rem 0;
+                    p {
+                        margin: .5rem 0;
+                    }
+
+                    @include media-xl {
+                        margin: 0;
+                    }
+                }
+            }
+            .BorderCountries {
+                .Borders {
+                    width: 100%;
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr );
+                    grid-template-rows: repeat(2, 1fr);
+                    grid-gap: .5rem;
+                    
+                    button {
+                        padding: .5rem;
+                        outline: 0;
+                        background: #fff;
+                        border: 0;
+                        box-shadow: 1px 1px 4px 1px #cccaca;
+                        font-weight: 300;
+                        transition: all .4s ease-in-out;   
+                        font-size: .8rem;                 
+                    }
+    
+                }
+                @include media-xl {
+                    margin: 4rem 0 0 0;
+                }
+                // width: 100%;
+                // display: grid;
+                // grid-template-columns: repeat (auto auto);
+            }
+        }
+    }        
 }
