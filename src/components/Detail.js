@@ -27,7 +27,7 @@ class Detail extends Component {
 
     componentDidUpdate(prevProps) {
         console.log(prevProps)
-        if(prevProps.location.key != this.props.location.key) {
+        if(prevProps.location.key !=- this.props.location.key) {
 
             const url =         `https://restcountries.eu/rest/v2/alpha/${this.props.match.params.alpha3Code}`;
             this.handleDetailClick(url);
