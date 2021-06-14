@@ -109,14 +109,16 @@ $White-Dark-Mode-Text-Light-Mode-Elements: #ffffff;
                 background: $Dark-Blue-Dark-Mode-Elements;
             }
         }
-        .Details {
-            .BorderCountries {
-                .Borders {
-                    a {
-                        button {
-                            background: $Dark-Blue-Dark-Mode-Elements;
-                            box-shadow: 1px 1px 4px 1px #202c37;
-                            color: #fff;
+        .FlexItem {
+            .Details {
+                .BorderCountries {
+                    .Borders {
+                        a {
+                            button {
+                                background: $Dark-Blue-Dark-Mode-Elements;
+                                box-shadow: 1px 1px 4px 1px #202c37;
+                                color: #fff;
+                            }
                         }
                     }
                 }
