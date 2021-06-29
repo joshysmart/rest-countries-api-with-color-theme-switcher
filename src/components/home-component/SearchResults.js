@@ -39,16 +39,6 @@ class SearchResults extends Component {
                     state: {
                         name: "jay"
                     }
-                    //     nativeName: country.nativeName,
-                    //     population: country.population,
-                    //     region: country.region,
-                    //     subregion: country.subregion,
-                    //     capital: country.capital,
-                    //     topLevelDomain: country.topLevelDomain,
-                    //     currencies: country.currencies,
-                    //     languages: country.languages,
-                    //     borders: country.borders,
-                    // }
                 }}
                 key={i}
             >
