@@ -42,6 +42,8 @@
             padding: 1rem 0 1rem 2rem;
             font-size: .8rem;
             transition: all .4s ease-in-out;
+            color: #858585;
+
             &::placeholder {
                 color: #858585;
                 transition: all .4s ease-in-out;
@@ -79,6 +81,8 @@
                 padding: 0 1.5rem;
                 p {
                     font-size: .8rem;
+                    transition: all .4s ease-in-out;
+
                 }
                 .Icon {
                     svg {
