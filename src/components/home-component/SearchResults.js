@@ -14,7 +14,7 @@ class SearchResults extends Component {
     }
 
     handleScroll() {
-        if(this.scrollbutton.current) {
+        if (this.scrollbutton.current) {
 
             if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
                 this.scrollbutton.current.classList.add("displayScroll");
@@ -32,10 +32,12 @@ class SearchResults extends Component {
 
     render() {
         const { from, to, countries, loading } = this.props.state;
+
+        console.log(countries.slice(from, to))
         const GridItem = countries.slice(from, to).map((country, i) =>
             <Link
                 to={{
-                    pathname: `/detail/${country.alpha3Code}`,
+                    pathname: `/detail/${country.cca2}`,
                     state: {
                         name: "jay"
                     }
@@ -44,10 +46,10 @@ class SearchResults extends Component {
             >
                 <div className="GridItem">
                     <div className="Flag">
-                        <img src={country.flag} alt="" />
+                        <img src={country.flags.svg} alt="" />
                     </div>
                     <div className="Description">
-                        <h3 className="Country">{country.name}</h3>
+                        <h3 className="Country">{country.name.common}</h3>
                         <p className="Population"><b>Population:</b> {`${country.population}`.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")
                         }</p>
                         <p className="Region"><b>Region:</b> {country.region}</p>

@@ -9,7 +9,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      "api": "https://restcountries.eu/rest/v2/all",
+      "api": "https://restcountries.com/v3.1",
       "loading": false,
       "countries": [],
       "country": {},
@@ -24,33 +24,31 @@ class App extends Component {
     this.handleSelect = this.handleSelect.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    // this.handleDetailClick = this.handleDetailClick.bind(this);
     this.toggleMode = this.toggleMode.bind(this);
   }
 
   getData(endpoint) {
     this.setState({ loading: true })
     fetch(endpoint)
-    .then(blob => blob.json())
-    .then(data => {
-      // console.log(data)
-      if (data.status === 404) {
-        this.setState({ "error": true })
-      } else {
-        this.setState(prev => {
-          return {
-            ...prev,
-            "countries": data,
-            // 'country': data,
-            "loading": false
-          }
-        });
-      }
-    });
+      .then(blob => blob.json())
+      .then(data => {
+        // console.dir(data[0])
+        if (data.status === 404) {
+          this.setState({ "error": true })
+        } else {
+          this.setState(prev => {
+            return {
+              ...prev,
+              countries: data,
+              loading: false
+            }
+          });
+        }
+      });
   }
 
   componentDidMount() {
-    this.getData(this.state.api);
+    this.getData(`${this.state.api}/all`);
   }
 
   handleClick() {
@@ -74,13 +72,13 @@ class App extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const url = `https://restcountries.eu/rest/v2/name/${this.state.countryName}`;
+    const url = `${this.state.api}/name/${this.state.countryName}`;
     this.getData(url);
   }
 
   handleSelect(e) {
     const text = e.target.textContent;
-    const url = `https://restcountries.eu/rest/v2/region/${text}`
+    const url = `${this.state.api}/region/${text}`
     this.setState({
       "text": text
     })
@@ -95,34 +93,25 @@ class App extends Component {
     })
   }
 
-  // handleDetailClick(url) {
-  //   this.getData(url);
-
-  //   console.log("Handling de÷tail")
-  // }
-
-
   render() {
     return (
       <>
         <Switch>
-          <Route path='/' render={() => <Home 
+          <Route path='/' render={() => <Home
             state={this.state}
             toggleMode={this.toggleMode}
             handleChange={this.handleChange}
             handleSubmit={this.handleSubmit}
             handleSelect={this.handleSelect}
             handleClick={this.handleClick}
-          />}  exact />
-          <Route path='/detail/:alpha3Code' 
-            render={(props) => <Detail 
-            {...props}
-            state={this.state}
-            toggleMode={this.toggleMode}
-            exact
-            // handleDetailClick={this.handleDetailClick}
-            // country={this.props.match.params.country}
-          />} />
+          />} exact />
+          <Route path='/detail/:alpha3Code'
+            render={(props) => <Detail
+              {...props}
+              state={this.state}
+              toggleMode={this.toggleMode}
+              exact
+            />} />
           <Route component={Error} />
         </Switch>
       </>
