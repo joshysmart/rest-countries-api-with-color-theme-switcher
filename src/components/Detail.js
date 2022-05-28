@@ -74,8 +74,8 @@ class Detail extends Component {
                     </div>
                     <div className="EconomicDetails">
                         <p><b>Top Level Domain: </b>{country.tld?.map((d, i) => `${d + (i < country.tld.length - 1 ? ', ' : '')}`)}</p>
-                        <p><b>Currencies: </b>{Object.keys(country.currencies).map(curr => <span> {country.currencies[curr].name + (i < Object.keys(country.currencies).length - 1 ? ", " : "")}</span>)}</p>
-                        <p><b>Languages: </b>{Object.keys(country.languages).map(lang => <span> {country.languages[lang] + (i < Object.keys(country.languages).length - 1 ? ", " : "")}</span>)}</p>
+                        <p><b>Currencies: </b>{Object.keys(country.currencies).map((curr, i) => <span> {country.currencies[curr].name + (i < Object.keys(country.currencies).length - 1 ? ", " : "")}</span>)}</p>
+                        <p><b>Languages: </b>{Object.keys(country.languages).map((lang, i) => <span> {country.languages[lang] + (i < Object.keys(country.languages).length - 1 ? ", " : "")}</span>)}</p>
                     </div>
                 </div>
                 <div className="BorderCountries">
