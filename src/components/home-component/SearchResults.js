@@ -33,7 +33,7 @@ class SearchResults extends Component {
     render() {
         const { from, to, countries, loading } = this.props.state;
 
-        console.log(countries.slice(from, to))
+        // console.log(countries.slice(from, to))
         const GridItem = countries.slice(from, to).map((country, i) =>
             <Link
                 to={{

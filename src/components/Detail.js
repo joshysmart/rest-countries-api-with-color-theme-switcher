@@ -96,7 +96,7 @@ class Detail extends Component {
 
 
         </div>)
-        console.dir(country)
+        // console.dir(country)
         return (
             <div className={`App ${this.props.state.DarkMode ? "DarkMode" : 'Light'}`} >
                 <Header
