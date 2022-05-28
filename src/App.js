@@ -34,7 +34,10 @@ class App extends Component {
       .then(data => {
         // console.dir(data[0])
         if (data.status === 404) {
-          this.setState({ "error": true })
+          this.setState({
+            "error": true,
+            loading: false
+          })
         } else {
           this.setState(prev => {
             return {
