@@ -37,7 +37,7 @@ class Detail extends Component {
         fetch(url)
             .then(blob => blob.json())
             .then(data => {
-                console.dir(data)
+                // console.dir(data)
                 if (data.status === 404) {
                     this.setState({ "error": true })
                 } else {
